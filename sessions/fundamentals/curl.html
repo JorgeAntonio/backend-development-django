@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Backend - Sesión 1 (v3 cURL)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
+    <link rel="stylesheet" href="css/curl.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Intro y Teoría (Resumido para enfoque práctico) -->
+            <section>
+                <h1>Desarrollo Web Backend</h1>
+                <h3>Fundamentos & cURL</h3>
+                <p><small>Jorge Antonio Del Aguila / Instructor</small></p>
+                <img src="https://curl.se/logo/curl-logo.svg"
+                     alt="Django Logo" style="height: 100px; border: none; background: white; padding: 10px;">
+            </section>
+
+            <section>
+                <h2>Repaso Rápido ⚡</h2>
+                <ul>
+                    <li><strong>Backend:</strong> Lógica y Datos (Cocina).</li>
+                    <li><strong>API:</strong> El Mesero (Intermediario).</li>
+                    <li><strong>JSON:</strong> El formato de los datos.</li>
+                </ul>
+            </section>
+
+            <!-- Introducción a cURL -->
+            <section>
+                <h2>La Herramienta del Profesional</h2>
+                <h1 class="emphasize">cURL</h1>
+                <p>Client URL</p>
+                <p>Olvídate del navegador. Vamos a hablar HTTP puro desde la terminal.</p>
+            </section>
+
+            <section>
+                <h2>¿Por qué cURL?</h2>
+                <ul>
+                    <li>Viene instalado en Linux, Mac y Windows.</li>
+                    <li>Te muestra lo que el navegador te oculta (Headers).</li>
+                    <li>Es vital para probar APIs y servidores.</li>
+                    <li>Te hace ver cool 😎.</li>
+                </ul>
+            </section>
+
+            <!-- Ejercicio 1: GET Simple -->
+            <section>
+                <h3>Ejercicio 1: Tu primera petición</h3>
+                <p>Vamos a pedir datos a JSONPlaceholder.</p>
+                <div class="terminal">
+                    $ curl https://jsonplaceholder.typicode.com/posts/1<br><br>
+                    <span style="color: #ccc;">
+                    {<br>
+                      "userId": 1,<br>
+                      "id": 1,<br>
+                      "title": "sunt aut facere...",<br>
+                      "body": "quia et suscipit..."<br>
+                    }
+                    </span>
+                </div>
+                <p><small>¡Eso es una respuesta <strong>200 OK</strong> en JSON!</small></p>
+            </section>
+
+            <!-- Ejercicio 2: Headers (Verbose) -->
+            <section>
+                <h3>Ejercicio 2: Ver lo Invisible (Headers)</h3>
+                <p>Usaremos la bandera <code>-v</code> (verbose) para ver la negociación.</p>
+                <div class="terminal">
+                    $ curl <span class="emphasize">-v</span> https://jsonplaceholder.typicode.com/posts/1
+                </div>
+                <div style="font-size: 0.6em; margin-top: 20px; text-align: left;">
+                    Busquen las líneas que empiezan con <code>></code> (Request) y <code><</code> (Response).
+                </div>
+            </section>
+
+            <!-- Ejercicio 3: PokeAPI -->
+            <section>
+                <h3>Ejercicio 3: PokeAPI 🐢</h3>
+                <p>Vamos a buscar a Squirtle.</p>
+                <div class="terminal">
+                    $ curl https://pokeapi.co/api/v2/pokemon/squirtle
+                </div>
+                <p class="fragment warning">¡WOAH! ¡Es demasiado texto!</p>
+                <p class="fragment">Las APIs reales devuelven muchísima información.</p>
+            </section>
+
+            <!-- Ejercicio 4: POST (Crear datos) -->
+            <section>
+                <h3>Ejercicio 4: Crear Datos (POST)</h3>
+                <p>Vamos a simular que creamos un post nuevo.</p>
+                <pre><code class="bash" data-trim>
+curl -X POST https://jsonplaceholder.typicode.com/posts \
+     -H "Content-Type: application/json" \
+     -d '{"title": "Hola", "body": "Mundo", "userId": 1}'
+                </code></pre>
+                <p><small>Nota: <code>-X POST</code> cambia el método. <code>-d</code> envía los datos.</small></p>
+            </section>
+
+            <section>
+                <h2>Status Code Challenge 🚦</h2>
+                <p>Ejecuta esto y dime qué código recibes:</p>
+                <div class="terminal">
+                    $ curl -v https://jsonplaceholder.typicode.com/posts/99999<span class="cursor">_</span>
+                </div>
+                <p class="fragment error">Debería ser un 404 Not Found</p>
+            </section>
+
+            <section>
+                <h2>Resumen</h2>
+                <p>Hoy aprendiste:</p>
+                <ul>
+                    <li>Que el Backend sirve JSON.</li>
+                    <li>Que HTTP tiene Headers ocultos.</li>
+                    <li>A usar la terminal para hacer peticiones.</li>
+                </ul>
+                <h3>¡Nos vemos en el código!</h3>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script>Reveal.initialize({ hash: true, plugins: [ RevealHighlight ] });</script>
+</body>
+</html>

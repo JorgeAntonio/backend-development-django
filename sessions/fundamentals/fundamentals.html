@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Backend Python & Django - Sesión 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/dracula.min.css">
+    <!-- Highlight.js para código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Título -->
+            <section>
+                <h1>Desarrollo Web Backend</h1>
+                <h3>Sesión 1: Fundamentos de la Web</h3>
+                <p><small>Jorge Antonio Del Aguila / Instructor</small></p>
+                <img src="https://static.djangoproject.com/img/logos/django-logo-negative.png"
+                    alt="Django Logo" style="height: 100px; border: none; background: transparent;">
+            </section>
+
+            <!-- Slide 2: Agenda -->
+            <section>
+                <h2>📋 Agenda de Hoy</h2>
+                <ul style="font-size: 0.8em;">
+                    <li>Introducción: ¿Qué es Backend?</li>
+                    <li>El viaje de una petición web</li>
+                    <li>Protocolo HTTP (Métodos, Headers)</li>
+                    <li>El concepto clave: <strong>API</strong></li>
+                    <li>Códigos de Estado (Status Codes)</li>
+                    <li>JSON vs HTML & APIs</li>
+                    <li>Mini Ejercicios Prácticos</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: ¿Qué es Backend? -->
+            <section>
+                <h2>¿Qué es Backend? 🤔</h2>
+                <p>Es la "cocina" de la aplicación. Lo que el usuario <strong>NO</strong> ve.</p>
+                <div class="container">
+                    <div class="box" style="width: 45%;">
+                        <h4>Frontend 🎨</h4>
+                        <p><small>El Menú, la Decoración, el Mesero.</small></p>
+                    </div>
+                    <div class="box" style="width: 45%; border-color: #50fa7b;">
+                        <h4>Backend ⚙️</h4>
+                        <p><small>El Chef, la Cocina, la Despensa.</small></p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Explicar la analogía del restaurante. Frontend es la experiencia visual, Backend es la lógica,
+                    seguridad y datos.
+                </aside>
+            </section>
+
+            <!-- Slide 4: Rol del Developer -->
+            <section>
+                <h2>🛠️ Tu rol como Backend Developer</h2>
+                <ul>
+                    <li class="fragment">Diseñar y construir <strong>APIs</strong>.</li>
+                    <li class="fragment">Implementar <strong>Lógica de Negocio</strong>.</li>
+                    <li class="fragment">Gestionar la <strong>Base de Datos</strong>.</li>
+                    <li class="fragment">Asegurar la <strong>Seguridad</strong> y Autenticación.</li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Flujo Web -->
+            <section>
+                <h2>El Viaje de una Petición 🌍</h2>
+                <div class="container" style="font-size: 0.8em;">
+                    <div class="box">Navegador<br>(Cliente)</div>
+                    <div class="arrow">➡️</div>
+                    <div class="box" style="border-color: #50fa7b;">Servidor<br>(Django)</div>
+                    <div class="arrow">🔄</div>
+                    <div class="box">Base de<br>Datos</div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.7em;">1. Petición HTTP &nbsp;&nbsp; 2. Proceso Lógico
+                    &nbsp;&nbsp; 3. Consulta DB &nbsp;&nbsp; 4. Respuesta</p>
+                <aside class="notes">
+                    Explicar paso a paso: Clic del usuario -> Request -> Django procesa -> SQL a la BD -> Respuesta de
+                    vuelta.
+                </aside>
+            </section>
+
+            <!-- Slide 6: HTTP -->
+            <section>
+                <h2>Protocolo HTTP / HTTPS 🔒</h2>
+                <p>El lenguaje de la web.</p>
+                <ul>
+                    <li><strong>HTTP:</strong> HyperText Transfer Protocol.</li>
+                    <li><strong>HTTPS:</strong> Versión segura (encriptada con SSL/TLS).</li>
+                </ul>
+                <p class="fragment emphasize">¡Hoy en día, todo debe ser HTTPS!</p>
+            </section>
+
+            <!-- Slide 7: Métodos HTTP -->
+            <section>
+                <h2>Verbos HTTP (Acciones)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método</th>
+                            <th>Acción (CRUD)</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="success">GET</td>
+                            <td>Read</td>
+                            <td>Pedir datos (sin modificar).</td>
+                        </tr>
+                        <tr>
+                            <td class="warning">POST</td>
+                            <td>Create</td>
+                            <td>Enviar datos (crear nuevo).</td>
+                        </tr>
+                        <tr>
+                            <td class="emphasize">PUT</td>
+                            <td>Update</td>
+                            <td>Actualizar datos existentes.</td>
+                        </tr>
+                        <tr>
+                            <td class="error">DELETE</td>
+                            <td>Delete</td>
+                            <td>Borrar un recurso.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Slide NUEVA: ¿Qué es una API? -->
+            <section>
+                <section>
+                    <h2>¿Qué es una API? 🔌</h2>
+                    <p class="emphasize">Application Programming Interface</p>
+                    <p>Es un <strong>intermediario</strong> que permite que dos aplicaciones se hablen entre sí.</p>
+                </section>
+
+                <section>
+                    <h3>La Analogía del Mesero 🤵</h3>
+                    <div class="container" style="font-size: 0.7em; align-items: stretch;">
+                        <div class="box" style="flex:1;">
+                            <strong>TÚ (Cliente)</strong><br><br>
+                            Tienes hambre, pero no puedes entrar a la cocina a cocinarte.
+                        </div>
+                        <div class="box" style="flex:1; border-color: #f1fa8c; background: rgba(241, 250, 140, 0.1);">
+                            <strong>EL MESERO (API)</strong><br><br>
+                            Toma tu pedido (formato específico), lo lleva a la cocina y te trae la comida.
+                        </div>
+                        <div class="box" style="flex:1; border-color: #50fa7b;">
+                            <strong>LA COCINA (Backend/BD)</strong><br><br>
+                            Prepara la comida con los ingredientes crudos (Datos).
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        El Frontend no toca la Base de Datos directamente (sería inseguro).
+                        Necesita a la API (el mesero) para pedir "Traeme los usuarios".
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>¿Por qué son vitales?</h3>
+                    <p>Gracias a la API, tu mismo Backend (Django) puede servir datos a:</p>
+                    <ul>
+                        <li>💻 Una Web (React/Vue)</li>
+                        <li>📱 Una App Móvil (iOS/Android)</li>
+                        <li>⌚ Un Smart Watch</li>
+                    </ul>
+                    <p><small>Todos "piden" datos a la misma API.</small></p>
+                </section>
+            </section>
+
+            <!-- Slide: Flujo Web -->
+            <section>
+                <h2>El Flujo App Mobile</h2>
+                <div class="container" style="font-size: 0.8em;">
+                    <div class="box">App Móvil</div>
+                    <div class="arrow">➡️</div>
+                    <div class="api-box">API</div>
+                    <div class="arrow">➡️</div>
+                    <div class="box" style="border-color: #50fa7b;">Base de Datos</div>
+                </div>
+                <p>La API define <strong>CÓMO</strong> pedir las cosas (Endpoints).</p>
+                <pre><code class="hljs">GET /api/productos  --> "Mesero, tráeme la lista de productos"</code></pre>
+            </section>
+
+            <!-- Slide 8: Headers & Body -->
+            <section>
+                <h2>Anatomía de una Petición 🧬</h2>
+                <div
+                    style="text-align: left; background: #333; padding: 20px; border-radius: 10px; font-family: monospace;">
+                    <span class="success">POST</span> /api/users HTTP/1.1<br>
+                    <span class="warning">Host:</span> miweb.com<br>
+                    <span class="warning">Content-Type:</span> application/json<br>
+                    <span class="warning">Authorization:</span> Bearer tokensicreto123<br>
+                    <br>
+                    {<br>
+                    &nbsp;&nbsp;"nombre": "Juan",<br>
+                    &nbsp;&nbsp;"email": "juan@email.com"<br>
+                    }
+                </div>
+                <p><small>☝️ Headers (Metadatos) vs Body (Datos reales)</small></p>
+            </section>
+
+            <!-- Slide: JSON -->
+            <section>
+                <h3>JSON (JavaScript Object Notation)</h3>
+                <pre><code class="json">
+                    {
+                    "plato": "Pizza",
+                    "precio": 15,
+                    "ingredientes": ["Queso", "Tomate"]
+                    }
+                </code></pre>
+                <p>Es texto plano, ligero y fácil de leer para cualquier programa.</p>
+            </section>
+
+            <!-- Slide 9: Status Codes -->
+            <section>
+                <h2>Status Codes (Semáforo) 🚦</h2>
+                <ul>
+                    <li class="fragment"><span class="success">2xx (Éxito):</span> <strong>200 OK</strong>, 201 Created.
+                    </li>
+                    <li class="fragment"><span class="warning">4xx (Error Cliente):</span>
+                        <ul>
+                            <li><strong>400</strong> Bad Request (Datos mal)</li>
+                            <li><strong>401</strong> Unauthorized (Loguéate)</li>
+                            <li><strong>404</strong> Not Found (No existe)</li>
+                        </ul>
+                    </li>
+                    <li class="fragment"><span class="error">5xx (Error Servidor):</span> <strong>500</strong> Internal
+                        Error (Culpa nuestra 😅).</li>
+                </ul>
+            </section>
+
+            <!-- Slide 10: JSON vs HTML -->
+            <section>
+                <section>
+                    <h2>Formatos de Respuesta</h2>
+                    <p>¿Qué devolvemos al usuario?</p>
+                </section>
+
+                <section>
+                    <h3>Web Tradicional (HTML)</h3>
+                    <pre><code class="html">
+<!-- El navegador renderiza esto -->
+<div>
+    <h1>Hola, Juan</h1>
+    <p>Tu saldo es $50</p>
+</div>
+                    </code></pre>
+                    <p>Mezcla datos y diseño.</p>
+                </section>
+
+                <section>
+                    <h3>API (JSON)</h3>
+                    <pre><code class="json">
+// Solo datos. El Frontend decide cómo mostrarlo.
+{
+    "user": "Juan",
+    "balance": 50,
+    "currency": "USD"
+}
+                    </code></pre>
+                    <p class="emphasize">Este es el estándar moderno para Backend.</p>
+                </section>
+            </section>
+
+            <!-- Slide 11: DevTools -->
+            <section>
+                <h2>🕵️‍♂️ DevTools</h2>
+                <p>Tu mejor amigo: <strong>F12</strong> > Pestaña <strong>Network</strong>.</p>
+                <p>Nos permite ver qué entra y sale de nuestro navegador en tiempo real.</p>
+            </section>
+
+            <!-- Slide 12: Ejercicios -->
+            <section>
+                <h2>⚡ Hora de Práctica</h2>
+                <ol>
+                    <li>Abrir DevTools en una web de noticias.</li>
+                    <li>Analizar el primer <strong>GET</strong> (Status 200).</li>
+                    <li>Entrar a <a href="https://jsonplaceholder.typicode.com/posts/1"
+                            target="_blank">JSONPlaceholder</a>.</li>
+                    <li>Entrar a <a href="https://pokeapi.co/api/v2/pokemon/pikachu" target="_blank">PokeAPI</a>.</li>
+                </ol>
+            </section>
+
+            <!-- Slide 13: Cierre -->
+            <section>
+                <h2>¡Fin de la Sesión 1! 🚀</h2>
+                <p>¿Preguntas?</p>
+                <p><small>Próxima clase: Configuración de entorno y "Hola Mundo" en Django.</small></p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealHighlight]
+        });
+    </script>
+</body>
+
+</html>

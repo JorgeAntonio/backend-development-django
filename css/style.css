@@ -1,0 +1,167 @@
+/* Guillermo Rauch inspired layout using Vercel palette */
+:root {
+	--bg: #0b0b0d;
+	--text: #f5f6fb;
+	--muted: #9ca2ad;
+	--accent: #ffffff;
+	--divider: #1a1b1f;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.6;
+	min-height: 100vh;
+}
+
+.site {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 72px 24px 120px;
+	display: flex;
+	flex-direction: column;
+	gap: 56px;
+}
+
+.site__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 32px;
+}
+
+.tagline {
+	text-transform: uppercase;
+	letter-spacing: 0.35em;
+	font-size: 0.7rem;
+	color: var(--muted);
+	margin-bottom: 12px;
+}
+
+.subtitle {
+	color: var(--muted);
+	margin-top: 12px;
+	font-size: 0.95rem;
+}
+
+nav {
+	display: flex;
+	gap: 24px;
+	font-size: 0.95rem;
+}
+
+nav a {
+	color: var(--text);
+	text-decoration: none;
+	position: relative;
+	padding-bottom: 4px;
+	transition: color 0.2s ease;
+}
+
+nav a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background: var(--accent);
+	opacity: 0;
+	transform: scaleX(0.8);
+	transform-origin: left;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+	color: var(--accent);
+}
+
+nav a:hover::after {
+	opacity: 1;
+	transform: scaleX(1);
+}
+
+.articles {
+	border-top: 1px solid var(--divider);
+}
+
+.article {
+	display: grid;
+	grid-template-columns: 90px 1fr 120px;
+	gap: 32px;
+	align-items: center;
+	padding: 24px 0;
+	border-bottom: 1px solid var(--divider);
+}
+
+.article__year {
+	font-weight: 500;
+	color: var(--muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.article__body {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.article__title {
+	font-size: 1.1rem;
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.article__title:hover {
+	color: #50fa7b;
+}
+
+.article__description {
+	color: var(--muted);
+	font-size: 0.95rem;
+	max-width: 560px;
+}
+
+.article__meta {
+	justify-self: flex-end;
+	color: var(--muted);
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	letter-spacing: 0.1em;
+}
+
+.article--upcoming .article__title {
+	color: var(--muted);
+	cursor: default;
+}
+
+.article--upcoming .article__title:hover {
+	color: var(--muted);
+}
+
+.article--upcoming .article__meta {
+	color: #f5a524;
+}
+
+@media (max-width: 720px) {
+	.site__header {
+		flex-direction: column;
+	}
+
+	.article {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.article__meta {
+		justify-self: flex-start;
+	}
+}

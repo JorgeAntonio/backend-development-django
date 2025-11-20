@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.box {
+  border: 2px solid #fff;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow {
+  font-size: 2em;
+}
+
+.emphasize {
+  color: #ff79c6;
+  font-weight: bold;
+}
+
+.success {
+  color: #50fa7b;
+}
+
+.error {
+  color: #ff5555;
+}
+
+.warning {
+  color: #f1fa8c;
+}
+
+.notes {
+  font-size: 0.5em;
+  color: #6272a4;
+  margin-top: 20px;
+  border-top: 1px solid #6272a4;
+  text-align: left;
+}
