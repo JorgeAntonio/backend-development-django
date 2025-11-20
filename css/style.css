@@ -116,12 +116,22 @@ nav a:hover::after {
 .article__title {
 	font-size: 1.1rem;
 	color: var(--accent);
-	text-decoration: none;
-	transition: color 0.2s ease;
 }
 
-.article__title:hover {
+.article__title-link {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	display: inline-block;
+}
+
+.article__title-link:hover {
 	color: #50fa7b;
+}
+
+.article__title--disabled {
+	color: var(--muted);
+	cursor: not-allowed;
 }
 
 .article__description {
