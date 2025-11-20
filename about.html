@@ -35,92 +35,80 @@
             </nav>
         </header>
 
-        <section>
-            <p>Diseñamos este plan para que desarrolles criterio backend desde los fundamentos de la web hasta el despliegue en AWS. Cada sesión dura 3 horas y termina con un entregable práctico.</p>
+        <section class="about-block">
+            <h2>Contenido</h2>
+            <p>Es un programa intensivo de 24 horas que replica el flujo real de un equipo backend: investigación, construcción, pruebas, despliegue y operación. Cada sesión entrega un entregable (slides, workshop o repo) y se conecta con la siguiente para construir un proyecto completo.</p>
         </section>
 
-        <section class="articles" aria-label="Plan de sesiones">
-            <article class="article">
-                <span class="article__year">Sesión 1</span>
-                <div class="article__body">
-                    <h2 class="article__title">Fundamentos de Desarrollo Web</h2>
-                    <p class="article__description">HTTP, status codes, arquitectura cliente-servidor, JSON vs HTML y uso táctico de DevTools. Termina con pruebas a APIs públicas.</p>
-                </div>
-                <span class="article__meta">Jorge · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 2</span>
-                <div class="article__body">
-                    <h2 class="article__title">Python aplicado a backend</h2>
-                    <p class="article__description">Repaso de colecciones, excepciones, módulos y OOP para modelar datos. Construimos un microservidor que retorna JSON y maneja errores reales.</p>
-                </div>
-                <span class="article__meta">Jorge · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 3</span>
-                <div class="article__body">
-                    <h2 class="article__title">Git & GitHub para equipos</h2>
-                    <p class="article__description">Estrategias de branching, PRs, issues y pipelines. Clonamos un proyecto Django y simulamos un flujo profesional.</p>
-                </div>
-                <span class="article__meta">Jorge · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 4</span>
-                <div class="article__body">
-                    <h2 class="article__title">Django: Fundamentos + Auth</h2>
-                    <p class="article__description">Proyecto base, apps, vistas y formularios. Implementamos login, logout, manejo de sesiones y seguridad CSRF/CORS.</p>
-                </div>
-                <span class="article__meta">Jorge · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 5</span>
-                <div class="article__body">
-                    <h2 class="article__title">Modelos & Bases de Datos</h2>
-                    <p class="article__description">SQLite y PostgreSQL, migraciones, relaciones y consultas ORM. Construimos el dominio Usuarios · Posts · Comentarios.</p>
-                </div>
-                <span class="article__meta">Jorge · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 6</span>
-                <div class="article__body">
-                    <h2 class="article__title">API REST con DRF</h2>
-                    <p class="article__description">Serializers, ViewSets, routers, validaciones, paginación y autenticación con tokens/JWT para exponer un API robusta.</p>
-                </div>
-                <span class="article__meta">Jhonatan · 3 h</span>
-            </article>
-
-            <article class="article">
-                <span class="article__year">Sesión 7</span>
-                <div class="article__body">
-                    <h2 class="article__title">Testing & Performance</h2>
-                    <p class="article__description">pytest-django, pruebas de API, optimización con select_related/prefetch_related, Locust y features avanzadas de PostgreSQL.</p>
-                </div>
-                <span class="article__meta">Jhonatan · 3 h</span>
-            </article>
-
-            <article class="article article--upcoming">
-                <span class="article__year">Sesión 8</span>
-                <div class="article__body">
-                    <h2 class="article__title">Deploy en AWS con Nginx + Gunicorn</h2>
-                    <p class="article__description">EC2, entorno productivo, PostgreSQL gestionado, WSGI con Gunicorn, reverse proxy con Nginx y automatización de deploy.</p>
-                </div>
-                <span class="article__meta">Cristhian · 3 h</span>
-            </article>
+        <section class="info-grid">
+            <div class="info-card">
+                <p class="badge">Perfil</p>
+                <h3>Para devs que ya programan</h3>
+                <p>Ideal para desarrolladores con bases en Python/JS que quieren profesionalizar su stack backend o para frontend devs que migran al server side.</p>
+            </div>
+            <div class="info-card">
+                <p class="badge">Resultados</p>
+                <h3>Skillset completo</h3>
+                <p>Saldrás con un backend funcional, API REST documentada, pipelines Git y un playbook de despliegue en AWS listo para producción.</p>
+            </div>
+            <div class="info-card">
+                <p class="badge">Formato</p>
+                <h3>8 sesiones · 3 h c/u</h3>
+                <p>Workshops guiados, live-coding y retos individuales. Todo el material queda publicado en este sitio.</p>
+            </div>
         </section>
 
-        <section>
-            <p>Al cierre dominarás el ciclo completo: diseño de APIs, control de versiones, Django + DRF, pruebas, optimización y despliegue en la nube.</p>
+        <section class="stack-section">
+            <h2>Herramientas y Tecnologías</h2>
+            <div class="stack-columns">
+                <div>
+                    <p class="stack-title">Lenguajes & Core</p>
+                    <ul>
+                        <li>Python 3.12</li>
+                        <li>Shell / cURL</li>
+                        <li>HTML + JSON (para entender el intercambio)</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="stack-title">Frameworks</p>
+                    <ul>
+                        <li>Django 5.x</li>
+                        <li>Django REST Framework</li>
+                        <li>pytest-django / unittest</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="stack-title">Datos</p>
+                    <ul>
+                        <li>SQLite para prototipos</li>
+                        <li>PostgreSQL para producción</li>
+                        <li>JSONField, búsquedas full-text</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="stack-title">Tooling & Deploy</p>
+                    <ul>
+                        <li>Git + GitHub Flow</li>
+                        <li>GitHub Actions (CI)</li>
+                        <li>AWS EC2 · Nginx · Gunicorn · Let’s Encrypt</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-block">
+            <h2>Metodología</h2>
+            <ul class="session-list">
+                <li>Mini briefs al iniciar cada sesión para contextualizar el reto.</li>
+                <li>Live coding + pair programming para ver cómo se resuelven problemas en tiempo real.</li>
+                <li>Retrospectiva y checklist al cierre para preparar la siguiente sesión.</li>
+                <li>Repositorio centralizado con slides, workshops y scripts de deploy.</li>
+            </ul>
         </section>
 
         <footer class="site__footer">
             <p>© 2025 Backend Sessions · Jorge Antonio Del Aguila</p>
             <a href="https://github.com/JorgeAntonio/backend-development-django" target="_blank" rel="noopener noreferrer">Repositorio</a>
-            <span>Docentes: Jorge, Jhonatan y Cristhian</span>
         </footer>
     </main>
 </body>
